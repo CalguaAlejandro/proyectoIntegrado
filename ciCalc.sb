@@ -1,0 +1,328 @@
+'Alejandro Calgua Pinetta
+'4to Baco B
+
+'Tamano ventana
+GraphicsWindow.Width = 320
+GraphicsWindow.Height = 505
+
+
+'Color de fondo
+GraphicsWindow.BackgroundColor = "black"
+
+'Boton maximisar
+GraphicsWindow.CanResize = "No"
+
+'Borde del teclado
+GraphicsWindow.PenColor = "orange"
+GraphicsWindow.DrawRectangle(30,150,260,335)
+
+'Borde exterior
+GraphicsWindow.DrawRectangle(15,15,290,480)
+
+'Visor
+caja = Controls.AddTextBox(35,65)
+Controls.SetSize(caja,250,50)
+
+'Tamano de letras visor
+
+
+'Botones
+nd = Controls.AddButton("2 F",40,160)
+Controls.SetSize(nd,40,30)
+DRG = Controls.AddButton("DRG",80,160)
+Controls.SetSize(DRG,40,30)
+EF = Controls.AddButton("E<->F",120,160)
+Controls.SetSize(EF,60,30)
+OFF = Controls.AddButton("OFF",180,160)
+Controls.SetSize(OFF,40,30)
+ON = Controls.AddButton("C/ON",220,160)
+Controls.SetSize(ON,60,30)
+hyp = Controls.AddButton("hyp",40,190)
+Controls.SetSize(hyp,40,30)
+sin = Controls.AddButton("sin",80,190)
+Controls.SetSize(sin,40,30)
+cos = Controls.AddButton("cos",120,190)
+Controls.SetSize(cos,40,30)
+tan = Controls.AddButton("tan",160,190)
+Controls.SetSize(tan,40,30)
+flc = Controls.AddButton("->",200,190)
+Controls.SetSize(flc,40,30)
+CE = Controls.AddButton("CE",240,190)
+Controls.SetSize(CE,40,30)
+DEG = Controls.AddButton("DEG",40,220)
+Controls.SetSize(DEG,40,30)
+Ln = Controls.AddButton("Ln",80,220)
+Controls.SetSize(Ln,40,30)
+log = Controls.AddButton("log",120,220)
+Controls.SetSize(log,40,30)
+a = Controls.AddButton("a",160,220)
+Controls.SetSize(a,40,30)
+b = Controls.AddButton("b",200,220)
+Controls.SetSize(b,40,30)
+x2 = Controls.AddButton("x²",240,220)
+Controls.SetSize(x2,40,30)
+Exp = Controls.AddButton("Exp",40,250)
+Controls.SetSize(Exp,40,30)
+yx = Controls.AddButton("y^x",80,250)
+Controls.SetSize(yx,40,30)
+raiz = Controls.AddButton("√",120,250)
+Controls.SetSize(raiz,40,30)
+RCL = Controls.AddButton("RCL",160,250)
+Controls.SetSize(RCL,40,30)
+STO = Controls.AddButton("STO",200,250)
+Controls.SetSize(STO,40,30)
+M = Controls.AddButton("M+",240,250)
+Controls.SetSize(M,40,30)
+siete = Controls.AddButton("8",40,280)
+Controls.SetSize(siete,50,50)
+ocho = Controls.AddButton("7",90,280)
+Controls.SetSize(ocho,50,50)
+nueve = Controls.AddButton("9",140,280)
+Controls.SetSize(nueve,50,50)
+cuatro = Controls.AddButton("4",40,330)
+Controls.SetSize(cuatro,50,50)
+cinco = Controls.AddButton("5",90,330)
+Controls.SetSize(cinco,50,50)
+seis = Controls.AddButton("6",140,330)
+Controls.SetSize(seis,50,50)
+uno = Controls.AddButton("1",40,380)
+Controls.SetSize(uno,50,50)
+dos = Controls.AddButton("2",90,380)
+Controls.SetSize(dos,50,50)
+tres = Controls.AddButton("3",140,380)
+Controls.SetSize(tres,50,50)
+cero = Controls.AddButton("0",40,430)
+Controls.SetSize(cero,50,50)
+punto = Controls.AddButton(".",90,430)
+Controls.SetSize(punto,50,50)
+masmenos = Controls.AddButton("+/-",140,430)
+Controls.SetSize(masmenos,50,50)
+prt1 = Controls.AddButton("(",190,280)
+Controls.SetSize(prt1,45,50)
+prt2 = Controls.AddButton(")",235,280)
+Controls.SetSize(prt2,45,50)
+por = Controls.AddButton("*",190,330)
+Controls.SetSize(por,45,50)
+div = Controls.AddButton("/",235,330)
+Controls.SetSize(div,45,50)
+mas = Controls.AddButton("+",190,380)
+Controls.SetSize(mas,45,50)
+menos = Controls.AddButton("-",235,380)
+Controls.SetSize(menos,45,50)
+igual = Controls.AddButton("=",190,430)
+Controls.SetSize(igual,90,50)
+
+'CONDICION BOTON
+'evento boton
+Controls.ButtonClicked = boton
+
+'variable auxiliar
+operadorSuma = 0
+operadorResta = 0
+operadorMultiplicacion = 0
+
+'condicion boton
+Sub boton
+  ultimo_boton = Controls.LastClickedButton
+  If ultimo_boton = uno Then
+    boton1()
+  ElseIf ultimo_boton = dos then
+    boton2()
+  elseif ultimo_boton = tres then
+    boton3()
+  elseif ultimo_boton = cuatro then
+    boton4()
+  elseif ultimo_boton= cinco then
+    boton5()
+  elseif ultimo_boton = seis then
+    boton6()
+  elseif ultimo_boton = siete then
+    boton7()
+  elseif ultimo_boton = ocho then
+    boton8()
+  elseif ultimo_boton = nueve then
+    boton9()
+  elseif ultimo_boton = cero then
+    boton0()
+  elseif ultimo_boton = punto then
+    boton11()
+  elseif ultimo_boton = prt1 then
+    botonP1()
+  elseif ultimo_boton = prt2 then
+    botonP2()
+  elseif ultimo_boton = ON then
+    botonLimpiar()
+  elseif ultimo_boton = mas then
+    botonMas()
+  elseif ultimo_boton = menos then
+    botonMenos()
+  elseif ultimo_boton = por then
+    botonPor()
+  elseif ultimo_boton =  div then
+    botonDiv()
+  elseif ultimo_boton = sin then
+    botonSin()
+  elseif ultimo_boton = cos then
+    botonCos()
+  elseif ultimo_boton = tan then
+    botonTan()
+  elseif ultimo_boton = Ln then
+    botonLn()
+  elseif ultimo_boton = log then
+    botonLog()
+  elseif ultimo_boton = a then
+    botonA()
+  elseif ultimo_boton = b then
+    botonB()
+  elseif ultimo_boton = yx then
+    botonYX()
+  elseif ultimo_boton = x2 then
+    botonX2()
+  elseif ultimo_boton = raiz then
+    botonRaiz()
+  EndIf
+EndSub
+
+'subrutonas del boton numero
+Sub boton1
+  contenido_caja = Controls.GetTextBoxText(caja)
+  numero = "1"
+  Controls.SetTextBoxText(caja,Text.Append(contenido_caja,numero))
+EndSub
+Sub boton2
+  contenido_caja = Controls.GetTextBoxText(caja)
+  numero = "2"
+  Controls.SetTextBoxText(caja, Text.Append(contenido_caja,numero))
+EndSub
+Sub boton3
+  contenido_caja = Controls.GetTextBoxText(caja)
+  numero = "3"
+  Controls.SetTextBoxText(caja, Text.Append(contenido_caja,numero))
+EndSub
+Sub boton4
+  contenido_caja = Controls.GetTextBoxText(caja)
+  numero = "4"
+  Controls.SetTextBoxText(caja, Text.Append(contenido_caja,numero))
+EndSub
+Sub boton5
+  contenido_caja = Controls.GetTextBoxText(caja)
+  numero = "5"
+  Controls.SetTextBoxText(caja, Text.Append(contenido_caja,numero))
+EndSub
+Sub boton6
+  contenido_caja = Controls.GetTextBoxText(caja)
+  numero = "6"
+  Controls.SetTextBoxText(caja, Text.Append(contenido_caja,numero))
+EndSub
+Sub boton7
+  contenido_caja = Controls.GetTextBoxText(caja)
+  numero = "7"
+  Controls.SetTextBoxText(caja, Text.Append(contenido_caja,numero))
+EndSub
+Sub boton8
+  contenido_caja = Controls.GetTextBoxText(caja)
+  numero = "8"
+  Controls.SetTextBoxText(caja, Text.Append(contenido_caja,numero))
+EndSub
+Sub boton9
+  contenido_caja = Controls.GetTextBoxText(caja)
+  numero = "9"
+  Controls.SetTextBoxText(caja, Text.Append(contenido_caja,numero))
+EndSub
+Sub boton0
+  contenido_caja = Controls.GetTextBoxText(caja)
+  numero = "0"
+  Controls.SetTextBoxText(caja, Text.Append(contenido_caja,numero))
+EndSub
+Sub boton11
+  contenido_caja = Controls.GetTextBoxText(caja)
+  simbolo = "."
+  Controls.SetTextBoxText(caja, Text.Append(contenido_caja,simbolo))
+EndSub
+Sub botonP1
+  contenido_caja = Controls.GetTextBoxText(caja)
+  simbolo = "("
+  Controls.SetTextBoxText(caja, Text.Append(contenido_caja,simbolo))
+EndSub
+Sub botonP2
+  contenido_caja = Controls.GetTextBoxText(caja)
+  simbolo = ")"
+  Controls.SetTextBoxText(caja, Text.Append(contenido_caja,simbolo))
+EndSub
+Sub botonMas
+  contenido_caja = Controls.GetTextBoxText(caja)
+  simbolo = "+"
+  Controls.SetTextBoxText(caja, Text.Append(contenido_caja,simbolo))
+  EndSub
+  Sub botonMenos
+    contenido_caja = Controls.GetTextBoxText(caja)
+    simbolo = "-"
+    Controls.SetTextBoxText(caja, Text.Append(contenido_caja,simbolo))
+  EndSub
+  Sub botonPor
+    contenido_caja = Controls.GetTextBoxText(caja)
+    simbolo = "*"
+    Controls.SetTextBoxText(caja, Text.Append(contenido_caja,simbolo))
+  EndSub
+  Sub botonDiv
+    contenido_caja = Controls.GetTextBoxText(caja)
+    simbolo = "/"
+  Controls.SetTextBoxText(caja, Text.Append(contenido_caja, simbolo))  
+EndSub
+Sub botonSin
+  contenido_caja = Controls.GetTextBoxText(caja)
+  simbolo = "sin("
+  Controls.SetTextBoxText(caja, Text.Append(contenido_caja, simbolo))
+EndSub
+Sub botonCos
+  contenido_caja = Controls.GetTextBoxText(caja)
+  simbolo = "cos("
+  Controls.SetTextBoxText(caja, Text.Append(contenido_caja, simbolo))
+EndSub
+Sub botonTan
+  contenido_caja = Controls.GetTextBoxText(caja)
+  simbolo = "tan("
+  Controls.SetTextBoxText(caja, Text.Append(contenido_caja, simbolo))
+EndSub
+Sub botonLn
+  contenido_caja = Controls.GetTextBoxText(caja)
+  simbolo = "Ln("
+  Controls.SetTextBoxText(caja, Text.Append(contenido_caja, simbolo))
+EndSub
+Sub botonLog
+  contenido_caja = Controls.GetTextBoxText(caja)
+  simbolo = "Log("
+  Controls.SetTextBoxText(caja, Text.Append(contenido_caja, simbolo))
+EndSub
+Sub botonA
+  contenido_caja = Controls.GetTextBoxText(caja)
+  variable = "a"
+  Controls.SetTextBoxText(caja, Text.Append(contenido_caja, variable))
+EndSub
+Sub botonB
+  contenido_caja = Controls.GetTextBoxText(caja)
+  variable = "b"
+  Controls.SetTextBoxText(caja, Text.Append(contenido_caja, variable))
+EndSub
+Sub botonYX
+  contenido_caja = Controls.GetTextBoxText(caja)
+  simbolo = "ʌ"
+  Controls.SetTextBoxText(caja, Text.Append(contenido_caja, simbolo))
+EndSub
+Sub botonX2
+  contenido_caja = Controls.GetTextBoxText(caja)
+  simbolo = "²"
+  Controls.SetTextBoxText(caja, Text.Append(contenido_caja, simbolo))
+EndSub
+Sub botonRaiz
+  contenido_caja = Controls.GetTextBoxText(caja)
+  simbolo = "√"
+  Controls.SetTextBoxText(caja, Text.Append(contenido_caja, simbolo))
+  EndSub
+
+
+  'Subrutina botonlimpiar
+  
+  Sub botonLimpiar
+  Controls.SetTextBoxText(caja, "")
+  EndSub
